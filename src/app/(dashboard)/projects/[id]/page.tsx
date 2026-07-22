@@ -34,6 +34,7 @@ export default async function ProjectDetailPage({
     reference_model_url: string | null;
     reference_analysis: Record<string, unknown> | null;
     user_content: Record<string, unknown> | null;
+    creative_blueprint: Record<string, unknown> | null;
     final_url: string | null;
     created_at: string;
     updated_at: string;
@@ -118,6 +119,13 @@ export default async function ProjectDetailPage({
           />
           <StepCard
             number={4}
+            title="Générer le blueprint"
+            description="Fusion design + contenu en plan de création"
+            href={`/projects/${id}/blueprint`}
+            status={projectData.creative_blueprint ? "completed" : "pending"}
+          />
+          <StepCard
+            number={5}
             title="Générer l'affiche"
             description="Lancez la génération de votre affiche personnalisée"
             href={`/projects/${id}/generate`}
