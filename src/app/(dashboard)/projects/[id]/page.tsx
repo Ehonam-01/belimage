@@ -3,6 +3,7 @@ import { createServerSideClient } from "@/lib/database/server";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { ProjectActions } from "@/components/projects/project-actions";
 
 interface ProjectDetailPageProps {
   params: Promise<{ id: string }>;
@@ -84,6 +85,12 @@ export default async function ProjectDetailPage({
               <span>Crédits : {projectData.credits_consumed}</span>
             </div>
           </div>
+
+          <ProjectActions
+            projectId={projectData.id}
+            projectTitle={projectData.title}
+            projectDescription={projectData.description}
+          />
         </div>
 
         {/* Pipeline steps */}
