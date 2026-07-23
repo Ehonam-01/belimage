@@ -35,6 +35,7 @@ export default async function ProjectDetailPage({
     reference_analysis: Record<string, unknown> | null;
     user_content: Record<string, unknown> | null;
     creative_blueprint: Record<string, unknown> | null;
+    composition_data: Record<string, unknown> | null;
     final_url: string | null;
     created_at: string;
     updated_at: string;
@@ -130,6 +131,13 @@ export default async function ProjectDetailPage({
             description="Lancez la génération de votre affiche personnalisée"
             href={`/projects/${id}/generate`}
             status={projectData.final_url ? "completed" : projectData.status === "generating" || projectData.status === "composing" ? "in-progress" : "pending"}
+          />
+          <StepCard
+            number={6}
+            title="Éditer &amp; exporter"
+            description="Modifiez les textes, déplacez les éléments et exportez"
+            href={`/projects/${id}/editor`}
+            status={projectData.composition_data ? "completed" : "pending"}
           />
         </div>
       </div>
